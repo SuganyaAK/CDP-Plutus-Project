@@ -1,7 +1,7 @@
 # CDP-Plutus-Project
 A Todo List based on Plutus Smart Contract  
 
-This example Plutus smart contract demonstrates how to maintain authoritative ToDo List application state by way of an auxiliary proof token. A proof token is a NFT that remains at the script address at all times, and thus can be used to restrict valid application state to the datum of the particular UTxO on which it resides.
+This example Plutus smart contract demonstrates how to maintain ToDo List application state by way of an auxiliary proof token. A proof token is a NFT that remains at the script address at all times, and thus can be used to restrict valid application state to the datum of the particular UTxO on which it resides.
 This Project is done by me as part of my Cardano Developer Professional Course. This is a To-Do List where we can add a new task, update the status of the task as completed and delete the task if the length of the list is above a certain specified condition.
 
 **Representation of Datum**
@@ -11,11 +11,11 @@ This Project is done by me as part of my Cardano Developer Professional Course. 
                    }
   deriving (ToJSON, FromJSON, Generic, Show)`
 Datum "Task" has 2 parameters.
- 1. taskMap is of type Map with the key being the task and the value being a Bool represents0the completion status of the task. 
+ 1. taskMap is of type Map with the key being the task and the value being a Bool representsing the completion status of the task. (True= Task completed, False = Task not yet completed)
       "Buy Milk" False
       "Buy Candy" False
       "Buy Eggs" True
- 2. The second parameter "taskCounter" is of type Integer which will hold the updated state of the datum whenever the task is added/updated or deleted
+ 2. The second parameter "taskCounter" is of type Integer which will hold the updated state of the datum whenever the task is added or updated/deleted
 
 **Representation of Redeemer**
   `data TaskAction  = AddTask BuiltinByteString
